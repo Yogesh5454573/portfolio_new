@@ -19,13 +19,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::group(['middleware' => ['auth:admin', 'redirect_to_dashboard']], function () {
         Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
-        // =========  Manage Admins  =========
+        // ========= Start Manage Admins  =========
         Route::get('/adminList', [AdminController::class, 'adminList'])->name('adminList');
         Route::get('/addAdmin', [AdminController::class, 'addAdmin'])->name('addAdmin');
         Route::get('/editAdmin/{token}', [AdminController::class, 'editAdmin'])->name('editAdmin');
         Route::post('/addUpdateAdmin/{token?}', [AdminController::class, 'addUpdateAdmin'])->name('addUpdateAdmin');
         Route::put('/addUpdateAdmin/{token?}', [AdminController::class, 'addUpdateAdmin'])->name('addUpdateAdmin');
         Route::delete('/deleteAdmin/{token}', [AdminController::class, 'deleteAdmin'])->name('deleteAdmin');
-        // =========  Manage Admins  =========
+        // ========= End Manage Admins  =========
     });
 });
