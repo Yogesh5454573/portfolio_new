@@ -18,7 +18,7 @@
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('adminList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('adminList', 'addAdmin', 'editAdmin') ? 'active' : '' }}">
             <a href="{{ route('adminList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Manage Admins">Manage Admins</div>

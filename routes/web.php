@@ -8,7 +8,7 @@ use App\Http\Controllers\backend\HomeController;
 
 // =========  Frontend  =========
 Route::get('/', [ClientController::class, 'home'])->name('home');
-
+ 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', [LoginController::class, 'showLoginForm']);
