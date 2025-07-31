@@ -22,7 +22,7 @@
                             <h5 class="card-title mb-0">Manage Admins</h5>
                         </div>
                         <div class="card-header  col-md-6 col-sm-6 d-grid d-md-flex justify-content-md-end">
-                            <a href="{{ route('addAdmin') }}">
+                            <a href="{{ route('admin.addAdmin') }}">
                                 <button class="btn btn-sm btn-primary" type="button">
                                     <i class="menu-icon tf-icons ti ti-plus"></i>
                                     <span>Add Admin
@@ -64,7 +64,7 @@
             var table = $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('adminList') }}",
+                ajax: "{{ route('admin.adminList') }}",
                 columns: [{
                         data: 'id',
                         render: function(data, type, row, meta) {

@@ -16,7 +16,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item mt-0" href="{{ route('editAdmin', auth()->user()->token) }}">
+                        <a class="dropdown-item mt-0" href="{{ route('admin.editAdmin', auth()->user()->token) }}">
                             <div class="d-flex align-items-center">
                                 <div class="flex-shrink-0 me-2">
                                     <div class="avatar avatar-online">

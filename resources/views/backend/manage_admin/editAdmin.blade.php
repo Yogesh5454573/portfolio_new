@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Edit Admin</h5>
-                        <a href="{{ route('adminList') }}">
+                        <a href="{{ route('admin.adminList') }}">
                             <button class="btn btn-sm btn-primary" type="button">
                                 <i class="menu-icon tf-icons ti ti-user"></i>
                                 <span>Manage Admins</span>
@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         <form class="custom-validation" method="POST"
-                            action="{{ route('addUpdateAdmin', $adminData->token) }}">
+                            action="{{ route('admin.addUpdateAdmin', $adminData->token) }}">
                             @method('PUT')
                             @csrf
                             <div class="mb-6">
@@ -88,7 +88,7 @@
                                     <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
                                         Submit
                                     </button>
-                                    <a href="{{ route('adminList') }}" class="btn btn-danger waves-effect"> Cancel </a>
+                                    <a href="{{ route('admin.adminList') }}" class="btn btn-danger waves-effect"> Cancel </a>
                                 </div>
                             </div>
                         </form>

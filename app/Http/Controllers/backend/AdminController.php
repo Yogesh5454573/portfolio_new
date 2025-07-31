@@ -90,7 +90,7 @@ class AdminController extends Controller
             if ($adminData) {
                 return view('backend.manage_admin.editAdmin', ['adminData' => $adminData]);
             } else {
-                return redirect()->route('adminList')->with(['error' => 'Admin Details not found, please try again later.']);
+                return redirect()->route('admin.adminList')->with(['error' => 'Admin Details not found, please try again later.']);
             }
         } else {
             Session::flash("error", "There was some error, please try again later.");
@@ -101,6 +101,6 @@ class AdminController extends Controller
     {
         Admin::where(['token' => $token])->first()->delete();
         Session::flash("success", "Admin have been successfully deleted.");
-        return redirect()->route('adminList');
+        return redirect()->route('admin.adminList');
     }
 }

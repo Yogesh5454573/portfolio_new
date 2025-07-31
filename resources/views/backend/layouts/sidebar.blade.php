@@ -19,7 +19,7 @@
             </a>
         </li>
         <li class="menu-item {{ request()->routeIs('adminList') ? 'active' : '' }}">
-            <a href="{{ route('adminList') }}" class="menu-link">
+            <a href="{{ route('admin.adminList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Manage Admins">Manage Admins</div>
             </a>
