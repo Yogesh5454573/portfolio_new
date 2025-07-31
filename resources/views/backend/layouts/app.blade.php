@@ -44,6 +44,9 @@
             @include('backend.layouts.sidebar')
             <div class="layout-page">
                 @include('backend.layouts.navbar')
+                {{-- @php
+                    dd('Rendering the content...'); // Debugging line, can be removed later
+                @endphp --}}
                 <div class="content-wrapper">
                     @yield('content')
                     <div class="content-backdrop fade"></div>

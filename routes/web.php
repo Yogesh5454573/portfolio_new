@@ -10,7 +10,7 @@ use App\Http\Controllers\backend\HomeController;
 Route::get('/', [ClientController::class, 'home'])->name('home');
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [LoginController::class, 'showLoginForm']);
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('adminlogin', [LoginController::class, 'login'])->name('adminlogin');
@@ -19,7 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::group(['middleware' => ['auth:admin', 'redirect_to_dashboard']], function () {
         Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
-        
+
         // ========= Start Manage Admins  =========
         Route::controller(AdminController::class)
             ->name('admin.')

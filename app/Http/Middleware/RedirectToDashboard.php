@@ -13,6 +13,7 @@ class RedirectToDashboard
         if (!auth()->guard('admin')->check()) {
             return redirect()->route('login');
         }
+        // dd('Redirecting to dashboard...'); // Debugging line, can be removed later
         return $next($request);
     }
 }

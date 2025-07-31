@@ -15,6 +15,7 @@ class AdminController extends Controller
 {
     public function adminList(Request $request)
     {
+        // dd('Fetching admin list...'); // Debugging line, can be removed later
         try {
             if ($request->ajax()) {
 
