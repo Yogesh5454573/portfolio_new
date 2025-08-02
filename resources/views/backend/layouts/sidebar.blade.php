@@ -18,16 +18,22 @@
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('adminList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('admin.adminList') ? 'active' : '' }}">
             <a href="{{ route('admin.adminList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Manage Admins">Manage Admins</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('skillList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('admin.skillList') ? 'active' : '' }}">
             <a href="{{ route('admin.skillList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div data-i18n="Manage Skills">Manage Skills</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->routeIs('admin.experienceList') ? 'active' : '' }}">
+            <a href="{{ route('admin.experienceList') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div data-i18n="Manage Expericence">Manage Expericence</div>
             </a>
         </li>
         <li class="menu-item {{ request()->routeIs('logout') ? 'active' : '' }}">

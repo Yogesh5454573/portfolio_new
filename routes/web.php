@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\ClientController;
 use App\Http\Controllers\backend\Auth\LoginController;
-use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController };
+use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController, ExperienceController };
 
 // =========  Frontend  =========
 Route::get('/', [ClientController::class, 'home'])->name('home');
@@ -44,5 +44,18 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::delete('/deleteSkill/{token}', 'deleteSkill')->name('deleteSkill');
             });
         // ========= End Manage Skills  =========
+
+        // ========= Start Manage Experence  =========
+        Route::controller(ExperienceController::class)
+            ->name('admin.')
+            ->group(function () {
+                Route::get('/experienceList', 'experienceList')->name('experienceList');
+                Route::get('/addExperience', 'addExperience')->name('addExperience');
+                Route::get('/editExperience/{token}', 'editExperience')->name('editExperience');
+                Route::post('/addUpdateExperience/{token?}', 'addUpdateExperience')->name('addUpdateExperience');
+                Route::put('/addUpdateExperience/{token?}', 'addUpdateExperience')->name('addUpdateExperience');
+                Route::delete('/deleteExperience/{token}', 'deleteExperience')->name('deleteExperience');
+            });
+        // ========= End Manage Experence  =========
     });
 });
