@@ -81,7 +81,7 @@ class AdminController extends Controller
             Session::flash("error", "There was some error, please try again later.");
         }
 
-        return redirect()->route('adminList');
+        return redirect()->route('admin.adminList');
     }
 
     public function editAdmin($token)

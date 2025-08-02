@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\ClientController;
 use App\Http\Controllers\backend\Auth\LoginController;
-use App\Http\Controllers\backend\AdminController;
-use App\Http\Controllers\backend\HomeController;
+use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController };
 
 // =========  Frontend  =========
 Route::get('/', [ClientController::class, 'home'])->name('home');
@@ -32,5 +31,18 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::delete('/deleteAdmin/{token}',  'deleteAdmin')->name('deleteAdmin');
             });
         // ========= End Manage Admins  =========
+
+        // ========= Start Manage Skills  =========
+        Route::controller(SkillController::class)
+            ->name('admin.')
+            ->group(function () {
+                Route::get('/skillList', 'skillList')->name('skillList');
+                Route::get('/addSkill', 'addSkill')->name('addSkill');
+                Route::get('/editSkill/{token}', 'editSkill')->name('editSkill');
+                Route::post('/addUpdateSkill/{token?}', 'addUpdateSkill')->name('addUpdateSkill');
+                Route::put('/addUpdateSkill/{token?}', 'addUpdateSkill')->name('addUpdateSkill');
+                Route::delete('/deleteSkill/{token}', 'deleteSkill')->name('deleteSkill');
+            });
+        // ========= End Manage Skills  =========
     });
 });

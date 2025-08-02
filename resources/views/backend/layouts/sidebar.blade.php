@@ -24,6 +24,12 @@
                 <div data-i18n="Manage Admins">Manage Admins</div>
             </a>
         </li>
+        <li class="menu-item {{ request()->routeIs('skillList') ? 'active' : '' }}">
+            <a href="{{ route('admin.skillList') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div data-i18n="Manage Skills">Manage Skills</div>
+            </a>
+        </li>
         <li class="menu-item {{ request()->routeIs('logout') ? 'active' : '' }}">
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
