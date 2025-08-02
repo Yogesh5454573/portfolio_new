@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Edit Skill</h5>
-                        <a href="{{ route('admin.addUpdateExperience') }}">
+                        <a href="{{ route('admin.experienceList') }}">
                             <button class="btn btn-sm btn-primary" type="button">
                                 <i class="menu-icon tf-icons ti ti-user"></i>
                                 <span>Manage Skill</span>
@@ -99,7 +99,7 @@
                                     <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
                                         Submit
                                     </button>
-                                    <a href="{{ route('admin.experienceList ') }}" class="btn btn-danger waves-effect"> Cancel
+                                    <a href="{{ route('admin.experienceList')}}" class="btn btn-danger waves-effect"> Cancel
                                     </a>
                                 </div>
                             </div>

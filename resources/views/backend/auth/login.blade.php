@@ -60,7 +60,7 @@
                                         id="email"
                                         name="email"
                                         placeholder="Enter Email"
-                                        autofocus required />
+                                        autofocus  />
                                         @error('email')
                                             <span class="messages">
                                                 <p class="text-danger error">{{ $message }}</p>
@@ -76,14 +76,15 @@
                                             class="form-control"
                                             name="password"
                                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                            aria-describedby="password" required />
-                                            @error('password')
+                                            aria-describedby="password"  />
+
+                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    </div>
+                                     @error('password')
                                                 <span class="messages">
                                                     <p class="text-danger error">{{ $message }}</p>
                                                 </span>
                                             @enderror
-                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                                    </div>
                                 </div>
                                 <div class="mb-6">
                                     <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
