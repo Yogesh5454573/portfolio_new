@@ -18,28 +18,34 @@
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('admin.adminList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('admin.adminList', 'admin.addAdmin', 'admin.editAdmin') ? 'active' : '' }}">
             <a href="{{ route('admin.adminList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Manage Admins">Manage Admins</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('admin.skillList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('admin.skillList', 'admin.addSkill', 'admin.editSkill') ? 'active' : '' }}">
             <a href="{{ route('admin.skillList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div data-i18n="Manage Skills">Manage Skills</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('admin.experienceList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('admin.experienceList', 'admin.addExperience', 'admin.editExperience') ? 'active' : '' }}">
             <a href="{{ route('admin.experienceList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div data-i18n="Manage Expericence">Manage Expericences</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->routeIs('admin.serviceList') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('admin.serviceList', 'admin.addService', 'admin.editService') ? 'active' : '' }}">
             <a href="{{ route('admin.serviceList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div data-i18n="Manage Services">Manage Services</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->routeIs('admin.projectList', 'admin.addProject', 'admin.editProject') ? 'active' : '' }}">
+            <a href="{{ route('admin.projectList') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div data-i18n="Manage Project">Manage Project</div>
             </a>
         </li>
         <li class="menu-item {{ request()->routeIs('logout') ? 'active' : '' }}">

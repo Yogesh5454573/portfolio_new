@@ -6,7 +6,6 @@ use App\Models\Skills;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Admin\SkillsRequest;

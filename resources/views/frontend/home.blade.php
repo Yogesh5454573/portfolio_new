@@ -250,22 +250,13 @@
                             <h2 class="title position-relative pb-2 mb-4">Portfolio</h2>
                         </div>
                         <div class="col-12">
-                            <div class="row">
-                                <div class="col-12 text-center mb-2">
-                                    <ul class="list-inline mb-4" id="portfolio-flters">
-                                        <li class="btn btn-outline-primary active"  data-filter="*"><i class="fa fa-star mr-2"></i>All</li>
-                                        <li class="btn btn-outline-primary" data-filter=".first"><i class="fa fa-laptop-code mr-2"></i>Design</li>
-                                        <li class="btn btn-outline-primary" data-filter=".second"><i class="fa fa-mobile-alt mr-2"></i>Development</li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="row portfolio-container">
                                 <div class="col-md-6 mb-4 portfolio-item first">
                                     <div class="position-relative overflow-hidden mb-2">
                                         <img class="img-fluid w-100" src="{{asset('frontend/assets/img/portfolio-1.jpg')}}" alt="">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="{{asset('frontend/assets/img/portfolio-1.jpg')}}" data-lightbox="portfolio">
-                                                <i class="fa fa-4x fa-plus text-white"></i>
+                                            <a href="https://www.youtube.com/" target="_blank" >
+                                                <i class="fa fa-4x fa-eye text-white"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -274,7 +265,7 @@
                                     <div class="position-relative overflow-hidden mb-2">
                                         <img class="img-fluid w-100" src="{{asset('frontend/assets/img/portfolio-2.jpg')}}" alt="">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
+                                            <a href="javascript:void()" data-lightbox="portfolio">
                                                 <i class="fa fa-4x fa-plus text-white"></i>
                                             </a>
                                         </div>
@@ -284,7 +275,7 @@
                                     <div class="position-relative overflow-hidden mb-2">
                                         <img class="img-fluid w-100" src="{{asset('frontend/assets/img/portfolio-3.jpg')}}" alt="">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
+                                            <a href="javascript:void()" data-lightbox="portfolio">
                                                 <i class="fa fa-4x fa-plus text-white"></i>
                                             </a>
                                         </div>
@@ -294,7 +285,7 @@
                                     <div class="position-relative overflow-hidden mb-2">
                                         <img class="img-fluid w-100" src="{{asset('frontend/assets/img/portfolio-4.jpg')}}" alt="">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="{{asset('frontend/assets/img/portfolio-4.jpg')}}" data-lightbox="portfolio">
+                                            <a href="javascript:void()" data-lightbox="portfolio">
                                                 <i class="fa fa-4x fa-plus text-white"></i>
                                             </a>
                                         </div>
@@ -305,55 +296,6 @@
                     </div>
                 </div>
                 <!-- Portfolio End -->
-
-
-                <!-- Testimonial Start -->
-                <div class="container bg-white py-5">
-                    <div class="row px-3">
-                        <div class="col-12">
-                            <h2 class="title position-relative pb-2 mb-4">Testimonial</h2>
-                        </div>
-                        <div class="col-12">
-                            <div class="owl-carousel testimonial-carousel">
-                                <div class="text-left">
-                                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                    <h4 class="text-body mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                                    <div class="d-flex align-items-center">
-                                        <img class="img-fluid" src="{{asset('frontend/assets/img/testimonial-1.jpg')}}" style="width: 60px; height: 60px;">
-                                        <div class="pl-3">
-                                            <h5 class="text-primary m-0">Client Name</h5>
-                                            <i>Profession</i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-left">
-                                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                    <h4 class="text-body mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                                    <div class="d-flex align-items-center">
-                                        <img class="img-fluid" src="{{asset('frontend/assets/img/testimonial-2.jpg')}}" style="width: 60px; height: 60px;">
-                                        <div class="pl-3">
-                                            <h5 class="text-primary m-0">Client Name</h5>
-                                            <i>Profession</i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-left">
-                                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                    <h4 class="text-body mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                                    <div class="d-flex align-items-center">
-                                        <img class="img-fluid" src="{{asset('frontend/assets/img/testimonial-3.jpg')}}" style="width: 60px; height: 60px;">
-                                        <div class="pl-3">
-                                            <h5 class="text-primary m-0">Client Name</h5>
-                                            <i>Profession</i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial End -->
-
 
                 <!-- Contact Start -->
                 <div class="container bg-white py-5" id="contact">

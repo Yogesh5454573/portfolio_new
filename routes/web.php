@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\ClientController;
 use App\Http\Controllers\backend\Auth\LoginController;
-use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController, ExperienceController, ServiceController };
+use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController, ExperienceController, ServiceController, ProjectController };
 
 // =========  Frontend  =========
 Route::get('/', [ClientController::class, 'home'])->name('home');
@@ -16,7 +16,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::group(['middleware' => ['auth:admin', 'redirect_to_dashboard']], function () {
+
+        // ========== Start Dashboard =========
         Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
+        // ========== End Dashboard ===========
 
 
         // ========= Start Manage Admins  =========
@@ -70,5 +73,18 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::delete('/deleteService/{token}', 'deleteService')->name('deleteService');
             });
         // ========= End Manage Service  =========
+
+        // ========= Start Manage Projects  =========
+        Route::controller(ProjectController::class)
+            ->name('admin.')
+            ->group(function () {
+                Route::get('/projectList', 'projectList')->name('projectList');
+                Route::get('/addProject', 'addProject')->name('addProject');
+                Route::get('/editProject/{token}', 'editProject')->name('editProject');
+                Route::post('/addUpdateProject/{token?}', 'addUpdateProject')->name('addUpdateProject');
+                Route::put('/addUpdateProject/{token?}', 'addUpdateProject')->name('addUpdateProject');
+                Route::delete('/deleteProject/{token}', 'deleteProject')->name('deleteProject');
+            });
+        // ========= End Manage Projects  =========
     });
 });
