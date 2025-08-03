@@ -6,11 +6,11 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Edit Skill</h5>
+                        <h5 class="mb-0">Edit Expericence</h5>
                         <a href="{{ route('admin.experienceList') }}">
                             <button class="btn btn-sm btn-primary" type="button">
                                 <i class="menu-icon tf-icons ti ti-user"></i>
-                                <span>Manage Skill</span>
+                                <span>Manage Expericence</span>
                             </button>
                         </a>
                     </div>

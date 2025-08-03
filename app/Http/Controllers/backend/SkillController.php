@@ -94,6 +94,6 @@ class SkillController extends Controller
     {
         Skills::where(['token' => $token])->first()->delete();
         Session::flash("success", "Skills have been successfully deleted.");
-        return redirect()->route('admin.adminList');
+        return redirect()->route('admin.skillList');
     }
 }

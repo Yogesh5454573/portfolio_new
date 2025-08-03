@@ -33,7 +33,13 @@
         <li class="menu-item {{ request()->routeIs('admin.experienceList') ? 'active' : '' }}">
             <a href="{{ route('admin.experienceList') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list"></i>
-                <div data-i18n="Manage Expericence">Manage Expericence</div>
+                <div data-i18n="Manage Expericence">Manage Expericences</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->routeIs('admin.serviceList') ? 'active' : '' }}">
+            <a href="{{ route('admin.serviceList') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div data-i18n="Manage Services">Manage Services</div>
             </a>
         </li>
         <li class="menu-item {{ request()->routeIs('logout') ? 'active' : '' }}">
