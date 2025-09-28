@@ -95,7 +95,7 @@ class ProjectController extends Controller
                 Session::flash("success", "Project details have been successfully created.");
             }
         } catch (\Exception $e) {
-            info("Error in addUpdateSkill(): " . $e->getMessage());
+            info("Error in addUpdateProject(): " . $e->getMessage());
             Session::flash("error", "There was some error, please try again later.");
         }
 

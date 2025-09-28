@@ -48,6 +48,12 @@
                 <div data-i18n="Manage Project">Manage Project</div>
             </a>
         </li>
+        <li class="menu-item {{ request()->routeIs('admin.infoList', 'admin.addInfo', 'admin.editInfo') ? 'active' : '' }}">
+            <a href="{{ route('admin.infoList') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div data-i18n="Manage Information">Manage Information</div>
+            </a>
+        </li>
         <li class="menu-item {{ request()->routeIs('logout') ? 'active' : '' }}">
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

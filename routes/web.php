@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\ClientController;
 use App\Http\Controllers\backend\Auth\LoginController;
-use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController, ExperienceController, ServiceController, ProjectController };
+use App\Http\Controllers\backend\{ AdminController, HomeController, SkillController, ExperienceController, ServiceController, ProjectController, InfoController };
 
 // =========  Frontend  =========
 Route::get('/', [ClientController::class, 'home'])->name('home');
@@ -86,5 +86,21 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::delete('/deleteProject/{token}', 'deleteProject')->name('deleteProject');
             });
         // ========= End Manage Projects  =========
+
+        // ========= Start Manage Projects  =========
+        Route::controller(InfoController::class)
+            ->name('admin.')
+            ->group(function () {
+                Route::get('/infoList', 'infoList')->name('infoList');
+                Route::get('/addInfo', 'addInfo')->name('addInfo');
+                Route::get('/editInfo/{token}', 'editInfo')->name('editInfo');
+                Route::post('/addUpdateInfo/{token?}', 'addUpdateInfo')->name('addUpdateInfo');
+                Route::put('/addUpdateInfo/{token?}', 'addUpdateInfo')->name('addUpdateInfo');
+                Route::delete('/deleteInfo/{token}', 'deleteInfo')->name('deleteInfo');
+                Route::get('/openResumeFile/{folder}/{token}', 'openResumeFile')->name('openResumeFile');
+            });
+        // ========= End Manage Projects  =========
+
+
     });
 });

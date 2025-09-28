@@ -7,21 +7,16 @@
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
 
-        <!-- Favicon -->
         <link href="{{asset('frontend/assets/img/favicon.ico')}}" rel="icon">
 
-        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Poppins&display=swap" rel="stylesheet">
 
-        <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
         <link href="{{asset('frontend/assets/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('frontend/assets/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
 
-        <!-- Customized Bootstrap Stylesheet -->
         <link href="{{asset('frontend/assets/css/style.css')}}" rel="stylesheet">
     </head>
 
@@ -52,7 +47,6 @@
                 </div>
             </div>
             <div class="content">
-                <!-- About Start -->
                 <div class="container bg-white py-5">
                     <div class="row px-3">
                         <div class="col-12">
@@ -89,10 +83,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- About End -->
 
 
-                <!-- Skills Start -->
                 <div class="container bg-white py-5">
                     <div class="row px-3">
                         <div class="col-12">
@@ -158,10 +150,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Skills End -->
 
 
-                <!-- Education Start -->
                 <div class="container bg-white py-5">
                     <div class="row px-3">
                         <div class="col-12">
@@ -191,10 +181,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Education End -->
-
-
-                <!-- Subscribe Start -->
                 <div class="container bg-white py-5 px-0">
                     <div class="bg-primary text-center p-5">
                         <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
@@ -209,10 +195,6 @@
                         </form>
                     </div>
                 </div>
-                <!-- Subscribe End -->
-
-
-                <!-- Services Start -->
                 <div class="container bg-white pt-5 pb-3">
                     <div class="row px-3">
                         <div class="col-12">
@@ -240,10 +222,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Services End -->
 
 
-                <!-- Portfolio Start -->
                 <div class="container bg-white pt-5 pb-3">
                     <div class="row px-3">
                         <div class="col-12">
