@@ -79,7 +79,7 @@
                                         <label class="form-label" for="description">Experience<font color="red"> *</font>
                                         </label>
                                         <input type="text" name="experience" value="{{ old('experience') }}"
-                                            class="form-control" id="experience" placeholder="Project Link " />
+                                            class="form-control" id="experience" placeholder="Experience" />
                                         @error('experience')
                                             <span class="messages">
                                                 <p class="text-danger error">{{ $message }}</p>
@@ -92,7 +92,7 @@
                                         <label class="form-label" for="name">Resume File<font color="red"> *</font>
                                         </label>
                                         <input type="file" name="resume_file" class="form-control" id="Resume File" placeholder="Project Name " />
-                                        
+
                                         @error('resume_file')
                                             <span class="messages">
                                                 <p class="text-danger error">{{ $message }}</p>
@@ -118,7 +118,7 @@
                                     <div class="mb-6">
                                         <label class="form-label" for="description">Address <font color="red"> *
                                             </font></label>
-                                        <textarea name="address" class="form-control" id="about_me" placeholder="address">{{ old('address') }}</textarea>
+                                        <textarea name="address" class="form-control" id="about_me" placeholder="Address">{{ old('address') }}</textarea>
                                         @error('address')
                                             <span class="messages">
                                                 <p class="text-danger error">{{ $message }}</p>

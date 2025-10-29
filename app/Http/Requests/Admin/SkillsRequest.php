@@ -19,12 +19,14 @@ class SkillsRequest extends FormRequest
         if ($this->isMethod('put')) {
             $updateSkills = Skills::where(['token' => $this->token])->first();
             return [
+                'skill_type'=> ['required'],
                 'skill_name' => ['required', 'string', 'min:3', 'max:255'],
                 'skill_per' => ['required'],
                 'status' => ['required']
             ];
         } else if ($this->isMethod('post')) {
             return [
+                'skill_type'=> ['required'],
                 'skill_name' => ['required', 'string', 'min:3', 'max:255'],
                 'skill_per' => ['required'],
                 'status' => ['required']

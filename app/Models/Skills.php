@@ -18,6 +18,7 @@ class Skills extends Authenticatable
     Protected $table= 'skills';
     protected $fillable = [
         'skill_name',
+        'skill_type',
         'skill_per',
         'token',
         'status'

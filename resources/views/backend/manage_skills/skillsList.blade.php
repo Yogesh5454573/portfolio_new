@@ -35,6 +35,7 @@
                             <thead class="border-top">
                                 <tr>
                                     <th>No</th>
+                                    <th>Skill Type</th>
                                     <th>Skill Name</th>
                                     <th>Skill Percenatage</th>
                                     <th>Status</th>
@@ -45,7 +46,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
@@ -70,6 +70,10 @@
                         render: function(data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }
+                    },
+                    {
+                        data: 'skill_type',
+                        name: 'skill_type'
                     },
                     {
                         data: 'skill_name',

@@ -20,6 +20,19 @@
                             @method('PUT')
                             @csrf
                             <div class="mb-6">
+                                <label class="form-label">Skill Type <font color="red">*</font></label>
+                                    <select class="form-select" name="skill_type" required>
+                                        <option value="">Select Skill Type</option>
+                                        <option value="languages" {{ old('skill_type', $skillsData->skill_type ?? '') == 'languages' ? 'selected' : '' }}>Languages</option>
+                                        <option value="framework" {{ old('skill_type', $skillsData->skill_type ?? '') == 'framework' ? 'selected' : '' }}>Framework</option>
+                                    </select>
+                                @error('skill_type')
+                                    <span class="messages">
+                                        <p class="text-danger error">{{ $message }}</p>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-6">
                                 <label class="form-label" for="name">Skill Name<font color="red"> *</font></label>
                                 <input type="text" name="skill_name" value="{{ old('skill_name', $skillsData->skill_name) }}"
                                     class="form-control" id="skill_name" placeholder="Skill Name" />

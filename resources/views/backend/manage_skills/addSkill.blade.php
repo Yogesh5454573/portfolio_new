@@ -18,6 +18,19 @@
                         <form class="custom-validation" method="POST" action="{{ route('admin.addUpdateSkill') }}">
                             @csrf
                             <div class="mb-6">
+                                <label class="form-label">Skill Type <font color="red"> *</font></label>
+                                <select class="form-select" name="skill_type">
+                                    <option selected value="">Skill Type</option>
+                                    <option value="languges">Languges</option>
+                                    <option value="framework">Framework</option>
+                                </select>
+                                @error('skill_type')
+                                    <span class="messages">
+                                        <p class="text-danger error">{{ $message }}</p>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-6">
                                 <label class="form-label" for="name">Skill Name <font color="red"> *</font></label>
                                 <input type="text" name="skill_name" value="{{ old('skill_name') }}" class="form-control"
                                     id="skill_name" placeholder="Skill Name " />

@@ -17,7 +17,7 @@ class SkillController extends Controller
         // dd('Fetching admin list...'); // Debugging line, can be removed later
         try {
             if ($request->ajax()) {
-
+                // dd($request->all());
                 $skillList = Skills::query();
 
                 return Datatables::of($skillList)

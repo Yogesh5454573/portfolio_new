@@ -28,7 +28,7 @@ class InfoRequest extends FormRequest
                 'address' => ['required'],
                 'freelance' => ['required'],
                 'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-                'resume_file' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+                'resume_file' => ['nullable', 'mimes:pdf', 'max:2048']
             ];
         } else if ($this->isMethod('post')) {
             // dd('hii');
@@ -43,7 +43,7 @@ class InfoRequest extends FormRequest
                 'address' => ['required'],
                 'freelance' => ['required'],
                 'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg','max:2048'],
-                'resume_file' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg','max:2048']
+                'resume_file' => ['nullable', 'mimes:pdf', 'max:2048']
             ];
         }
 
