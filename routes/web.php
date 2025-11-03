@@ -7,7 +7,8 @@ use App\Http\Controllers\backend\{ AdminController, HomeController, SkillControl
 
 // =========  Frontend  =========
 Route::get('/', [ClientController::class, 'home'])->name('home');
-
+Route::post('contact', [ClientController::class,'contact'])->name('contact');
+Route::get('/openResumeFile/{folder}/{token}',[ClientController::class, 'openResumeFile'])->name('openResumeFile');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [LoginController::class, 'showLoginForm']);

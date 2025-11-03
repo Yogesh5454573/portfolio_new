@@ -26,21 +26,25 @@
     <div class="wrapper">
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-                <img class="w-100 img-fluid mb-4" src="{{asset('frontend/assets/img/profile.jpg')}}" alt="Image">
-                <h1 class="mt-2">John Doe</h1>
+                <img class="w-100 img-fluid mb-4" src="{{ asset('storage/photos/' . $info->photo) }}" alt="Image">
+
+                <h1 class="mt-2">{{ $info->name }}</h1>
+
                 <div class="mb-4" style="height: 22px;">
                     <h4 class="typed-text-output d-inline-block text-body"></h4>
                     <div class="typed-text d-none">Full Stack Developer, AI Developer</div>
                 </div>
+
                 <div class="d-flex justify-content-center mt-auto mb-3">
-                    <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="mx-2" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="mx-2" href="https://www.linkedin.com/in/yogesh-bachute-982a72194/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="mx-2" href="+1`"><i class="fab fa-github"></i></a>
                 </div>
+
                 <div class="d-flex align-items-end justify-content-between">
-                    <a href="" class="btn btn-block border-right">Download CV</a>
+                    <a href="{{ route('openResumeFile', ['folder' => 'resume_files', 'token' => $info->token]) }}"
+                        target="_blank" class="btn btn-block border-right">
+                        View CV
+                    </a>
                     <a href="#contact" class="btn btn-block btn-scroll">Contact Me</a>
                 </div>
             </div>
@@ -216,39 +220,67 @@
                     </div>
                     <div class="col-12">
                         <div class="contact-form">
-                            <div id="success"></div>
-                            <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <form name="sentMessage" action="{{ route('contact') }}" method="POST" novalidate>
+                                @csrf
+
                                 <div class="form-row">
-                                    <div class="control-group col-sm-6">
+                                    <div class="control-group col-sm-6 mb-3">
                                         <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                            required="required"
-                                            data-validation-required-message="Please enter your name" />
-                                        <p class="help-block text-danger"></p>
+                                            name="name" value="{{ old('name') }}" required>
+                                        @error('name')
+                                            <p class="text-danger mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                    <div class="control-group col-sm-6">
+
+                                    <div class="control-group col-sm-6 mb-3">
                                         <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                            required="required"
-                                            data-validation-required-message="Please enter your email" />
-                                        <p class="help-block text-danger"></p>
+                                            name="email" value="{{ old('email') }}" required>
+                                        @error('email')
+                                            <p class="text-danger mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
-                                <div class="control-group">
+
+                                <div class="control-group mb-3">
                                     <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                        required="required" data-validation-required-message="Please enter a subject" />
-                                    <p class="help-block text-danger"></p>
+                                        name="subject" value="{{ old('subject') }}" required>
+                                    @error('subject')
+                                        <p class="text-danger mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
-                                <div class="control-group">
+
+                                <div class="control-group mb-3">
                                     <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
-                                        required="required"
-                                        data-validation-required-message="Please enter your message"></textarea>
-                                    <p class="help-block text-danger"></p>
+                                        name="message" required>{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <p class="text-danger mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
+
                                 <div>
-                                    <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send
-                                        Message</button>
+                                    <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">
+                                        Send Message
+                                    </button>
                                 </div>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -259,24 +291,20 @@
             <div class="container-fluid bg-white pt-5 px-0">
                 <div class="container bg-dark text-light text-center py-5">
                     <div class="d-flex justify-content-center mb-4">
-                        <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                        <a class="btn btn-outline-primary btn-square mr-2" href="https://github.com/Yogesh5454573"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com/in/yogesh-bachute-982a72194/"><i
                                 class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="d-flex justify-content-center mb-3">
-                        <a class="text-white" href="#">Privacy</a>
+                        <a class="text-white" href="javascript:void();">Privacy</a>
                         <span class="px-3">|</span>
-                        <a class="text-white" href="#">Terms</a>
+                        <a class="text-white" href="javascript:void();">Terms</a>
                         <span class="px-3">|</span>
-                        <a class="text-white" href="#">FAQs</a>
+                        <a class="text-white" href="javascript:void();">FAQs</a>
                         <span class="px-3">|</span>
-                        <a class="text-white" href="#">Help</a>
+                        <a class="text-white" href="javascript:void();">Help</a>
                     </div>
-                    <p class="m-0">&copy; All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML
-                            Codex</a></p>
+                    <p class="m-0">&copy; All Rights Reserved. Designed by <a href="/">Yogesh</a></p>
                 </div>
             </div>
             <!-- Footer End -->
