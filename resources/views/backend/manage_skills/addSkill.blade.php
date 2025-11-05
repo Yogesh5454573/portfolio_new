@@ -21,7 +21,7 @@
                                 <label class="form-label">Skill Type <font color="red"> *</font></label>
                                 <select class="form-select" name="skill_type">
                                     <option selected value="">Skill Type</option>
-                                    <option value="languges">Languges</option>
+                                    <option value="languages">Languges</option>
                                     <option value="framework">Framework</option>
                                 </select>
                                 @error('skill_type')
@@ -54,11 +54,11 @@
                                 <label class="form-label mb-3 d-flex">Status&nbsp;<font color="red">*</font></label>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="status" value="active" id="active"
-                                        {{ old('status') == '1' ? 'checked' : '' }} class="form-check-input" checked>
+                                        {{ old('status') == 'active' ? 'checked' : '' }} class="form-check-input" checked>
                                     <label class="form-check-label" for="active">Active</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="status" {{ old('status') == '0' ? 'checked' : '' }}
+                                    <input type="radio" name="status" {{ old('status') == 'inactive' ? 'checked' : '' }}
                                         value="inactive" class="form-check-input" id="inactive">
                                     <label class="form-check-label" for="inactive">Inactive</label>
                                 </div>

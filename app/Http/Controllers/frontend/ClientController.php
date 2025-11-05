@@ -19,6 +19,7 @@ class ClientController extends Controller
         $experience = Experence::orderBy('id', 'asc')->get();
         $service = Service::where('status', 'active')->get();
         $project = Project::where('status', 'active')->get();
+        // dd($skills_languages);
         return view('frontend.home', ['info' => $info, 'skills_languages' => $skills_languages, 'skills_frameworks' => $skills_frameworks, 'experience' => $experience, 'service' => $service, 'project' => $project]);
     }
 
