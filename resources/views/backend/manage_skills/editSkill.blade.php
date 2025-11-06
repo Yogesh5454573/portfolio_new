@@ -63,7 +63,7 @@
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="status" id="inactive"
                                         {{ old('status', $skillsData->status) == 'inactive' ? 'checked' : '' }}
-                                        value="0" class="form-check-input">
+                                        value="inactive" class="form-check-input">
                                     <label class="form-check-label" for="inactive">Inactive</label>
                                 </div>
                                 @error('status')

@@ -33,12 +33,6 @@ class AdminController extends Controller
 
                         return $edit . ' ' . $delete;
                     })
-                    ->editColumn('status', function ($adminList) {
-                        return $adminList->status ? 'Active' : 'Inactive';
-                    })
-                    ->editColumn('admin_type', function ($adminList) {
-                        return $adminList->admin_type == 1 ? 'Super Admin' : 'Admin';
-                    })
                     ->rawColumns(['action'])
                     ->make(true);
             }

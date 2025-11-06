@@ -5,9 +5,6 @@
             <i class="ti ti-menu-2 ti-md"></i>
         </a>
     </div>
-    {{-- @php
-                    dd('Rendering the content...'); // Debugging line, can be removed later
-                @endphp --}}
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <li class="nav-item navbar-dropdown dropdown-user dropdown">

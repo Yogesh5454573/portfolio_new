@@ -31,9 +31,6 @@ class ServiceController extends Controller
 
                         return $edit . ' ' . $delete;
                     })
-                    ->editColumn('status', function ($serviceList) {
-                        return $serviceList->status ? 'Active' : 'Inactive';
-                    })
                     ->rawColumns(['action'])
                     ->make(true);
             }

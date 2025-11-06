@@ -14,12 +14,9 @@ class SkillController extends Controller
 {
     public function skillList(Request $request)
     {
-        // dd('Fetching admin list...'); // Debugging line, can be removed later
         try {
             if ($request->ajax()) {
-                // dd($request->all());
                 $skillList = Skills::query();
-
                 return Datatables::of($skillList)
                     ->addIndexColumn()
                     ->addColumn('action', function ($skillList) {
@@ -31,9 +28,6 @@ class SkillController extends Controller
                     <button type="button" class="btn btn-danger btn-sm skill_delete_alert">Delete</button></form>';
 
                         return $edit . ' ' . $delete;
-                    })
-                    ->editColumn('status', function ($skillList) {
-                        return $skillList->status ? 'Active' : 'Inactive';
                     })
                     ->rawColumns(['action'])
                     ->make(true);

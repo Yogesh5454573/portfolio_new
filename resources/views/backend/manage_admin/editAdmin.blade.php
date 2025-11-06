@@ -66,16 +66,16 @@
                             <div class="mb-6">
                                 <label class="form-label mb-3 d-flex">Status&nbsp;<font color="red">*</font></label>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="status" value="1"
-                                        {{ old('status', $adminData->status) == '1' ? 'checked' : '' }}
+                                    <input type="radio" name="status" value="active" id="active"
+                                        {{ old('status', $adminData->status) == 'active' ? 'checked' : '' }}
                                         class="form-check-input" checked>
                                     <label class="form-check-label" for="active">Active</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="status"
-                                        {{ old('status', $adminData->status) == '0' ? 'checked' : '' }}
-                                        value="0" class="form-check-input">
-                                    <label class="form-check-label" for="in-active">Inactive</label>
+                                    <input type="radio" name="status" id="inactive"
+                                        {{ old('status', $adminData->status) == 'inactive' ? 'checked' : '' }}
+                                        value="inactive" class="form-check-input">
+                                    <label class="form-check-label" for="inactive">Inactive</label>
                                 </div>
                                 @error('status')
                                     <span class="messages">

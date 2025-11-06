@@ -32,9 +32,6 @@ class ExperienceController extends Controller
 
                         return $edit . ' ' . $delete;
                     })
-                    ->editColumn('status', function ($experienceList) {
-                        return $experienceList->status ? 'Active' : 'Inactive';
-                    })
                     ->rawColumns(['action'])
                     ->make(true);
             }

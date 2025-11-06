@@ -38,9 +38,6 @@ class ProjectController extends Controller
                         $altText = $row->proj_img ?? 'proj_img';
                         return '<img src="' . $imageUrl . '" width="80" height="80" style="object-fit: cover; border-radius: 8px;" alt="' . htmlspecialchars($altText) . '">';
                     })
-                    ->editColumn('status', function ($projectList) {
-                        return $projectList->status ? 'Active' : 'Inactive';
-                    })
                     ->rawColumns(['proj_img', 'action'])
                     ->make(true);
             }
