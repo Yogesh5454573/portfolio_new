@@ -32,13 +32,7 @@ class ProjectController extends Controller
 
                         return $edit . ' ' . $delete;
                     })
-                    ->addColumn('proj_img', function ($row) {
-                        $imagePath = $row->proj_img;
-                        $imageUrl = asset('storage/proj_imgs/' . $imagePath);
-                        $altText = $row->proj_img ?? 'proj_img';
-                        return '<img src="' . $imageUrl . '" width="80" height="80" style="object-fit: cover; border-radius: 8px;" alt="' . htmlspecialchars($altText) . '">';
-                    })
-                    ->rawColumns(['proj_img', 'action'])
+                    ->rawColumns(['action'])
                     ->make(true);
             }
         } catch (\Exception $e) {
@@ -60,18 +54,6 @@ class ProjectController extends Controller
                 $updateProject = Project::where(['token' => $token])->first();
                 if ($updateProject) {
                     $post = $request->all();
-                    if ($request->hasFile('proj_img')) {
-                        if ($updateProject->proj_img) {
-                            if (Storage::disk('public')->exists('proj_imgs/' . $updateProject->proj_img)) {
-                                Storage::disk('public')->delete('proj_imgs/' . $updateProject->proj_img);
-                            }
-                        }
-                        $file = $request->file('proj_img');
-                        $originalName = $file->getClientOriginalName();
-                        $proj_Name = uniqid() . '_' . str_replace(' ', '_', $originalName);
-                        $file->storeAs('proj_imgs/', $proj_Name, 'public');
-                        $post['proj_img'] = $proj_Name;
-                    }
                     $updateProject->update($post);
                     Session::flash('success', "Project details have been successfully updated.");
                 } else {
@@ -79,14 +61,6 @@ class ProjectController extends Controller
                 }
             } else {
                 $post = $request->all();
-                // dd($request->file('proj_img'));
-                if ($request->hasFile('proj_img')) {
-                    $proj_img = $request->file('proj_img');
-                    $originalName = $proj_img->getClientOriginalName();
-                    $proj_Name = uniqid() . '_' . str_replace(' ', '_', $originalName);
-                    $proj_img->storeAs('proj_imgs/', $proj_Name, 'public');
-                    $post['proj_img'] = $proj_Name;
-                }
                 $post['token'] = strtoupper((string) Str::uuid());
                 Project::create($post);
                 Session::flash("success", "Project details have been successfully created.");

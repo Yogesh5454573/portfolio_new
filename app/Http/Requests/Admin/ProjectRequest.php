@@ -20,14 +20,12 @@ class ProjectRequest extends FormRequest
             return [
                 'proj_name' => ['required', 'string', 'min:3', 'max:255'],
                 'proj_link' => ['required'],
-                'proj_img' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'status' => ['required']
             ];
         } else if ($this->isMethod('post')) {
             return [
                 'proj_name' => ['required', 'string', 'min:3', 'max:255'],
                 'proj_link' => ['required'],
-                // 'proj_img' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:5120'],
                 'status' => ['required']
             ];
 

@@ -54,6 +54,12 @@
                 <div data-i18n="Manage Information">Manage Information</div>
             </a>
         </li>
+        <li class="menu-item {{ request()->routeIs('admin.contactList') ? 'active' : '' }}">
+            <a href="{{ route('admin.contactList') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div data-i18n="Contacts">Contacts</div>
+            </a>
+        </li>
         <li class="menu-item {{ request()->routeIs('logout') ? 'active' : '' }}">
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

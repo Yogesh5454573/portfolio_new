@@ -99,6 +99,7 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::put('/addUpdateInfo/{token?}', 'addUpdateInfo')->name('addUpdateInfo');
                 Route::delete('/deleteInfo/{token}', 'deleteInfo')->name('deleteInfo');
                 Route::get('/openResumeFile/{folder}/{token}', 'openResumeFile')->name('openResumeFile');
+                Route::get('/contactList', 'contactList')->name('contactList');
             });
         // ========= End Manage Projects  =========
 

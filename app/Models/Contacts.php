@@ -20,6 +20,7 @@ class Contacts extends Authenticatable
         'name',
         'email',
         'subject',
-        'messges'
+        'message',
+        'created_at'
     ];
 }

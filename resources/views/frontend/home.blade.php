@@ -15,6 +15,8 @@
         rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
 
     <link href="{{asset('frontend/assets/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/assets/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
@@ -26,7 +28,7 @@
     <div class="wrapper">
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-                <img class="w-100 img-fluid mb-4" src="{{ asset('storage/photos/' . $info->photo) }}" alt="Image">
+                <img class="w-80 img-fluid mb-4" src="{{ asset('frontend/assets/img/Profile-Photo.jpg') }}" alt="Image">
 
                 <h1 class="mt-2">{{ $info->name }}</h1>
 
@@ -99,34 +101,34 @@
                 <div class="row px-3">
                     <div class="col-sm-6">
                         @foreach($skills_languages as $row)
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">{{ $row->skill_name }}</p>
-                                    <p class="mb-2">{{ $row->skill_per }}%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar"
-                                        style="width: {{ $row->skill_per }}%;" aria-valuenow="{{ $row->skill_per }}"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                    </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">{{ $row->skill_name }}</p>
+                                <p class="mb-2">{{ $row->skill_per }}%</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar"
+                                    style="width: {{ $row->skill_per }}%;" aria-valuenow="{{ $row->skill_per }}"
+                                    aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
                     <div class="col-sm-6">
                         @foreach($skills_frameworks as $row)
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">{{ $row->skill_name }}</p>
-                                    <p class="mb-2">{{ $row->skill_per }}%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar"
-                                        style="width: {{ $row->skill_per }}%;" aria-valuenow="{{ $row->skill_per }}"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                    </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">{{ $row->skill_name }}</p>
+                                <p class="mb-2">{{ $row->skill_per }}%</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar"
+                                    style="width: {{ $row->skill_per }}%;" aria-valuenow="{{ $row->skill_per }}"
+                                    aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -141,14 +143,14 @@
                     <div class="col-12">
                         <div class="border-left border-primary pt-2 pl-4 ml-2">
                             @foreach ($experience as $row)
-                                <div class="position-relative mb-4">
-                                    <i class="fa fa-arrow-right text-primary position-absolute"
-                                        style="top: 3px; left: -24px;"></i>
-                                    <h5 class="mb-1">{{ $row->ex_name }}</h5>
-                                    <p class="mb-2">{{ $row->com_name }} | <small>{{ $row->start_date }} -
-                                            {{ $row->end_date }}</small></p>
-                                    <p>{{ $row->com_des }}</p>
-                                </div>
+                            <div class="position-relative mb-4">
+                                <i class="fa fa-arrow-right text-primary position-absolute"
+                                    style="top: 3px; left: -24px;"></i>
+                                <h5 class="mb-1">{{ $row->ex_name }}</h5>
+                                <p class="mb-2">{{ $row->com_name }} | <small>{{ $row->start_date }} -
+                                        {{ $row->end_date }}</small></p>
+                                <p style="text-align: justify;">{{ $row->com_des }}</p>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -174,40 +176,67 @@
                         <h2 class="title position-relative pb-2 mb-4">Services</h2>
                     </div>
                     @foreach ($service as $row)
-                        <div class="col-md-6 service-item text-center mb-3">
-                            <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
-                            <h5 class="mb-2">{{ $row->ser_name }}</h5>
-                            <p>{{ $row->ser_desc }}</p>
-                        </div>
+                    <div class="col-md-6 service-item text-center mb-3">
+                        <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
+                        <h5 class="mb-2">{{ $row->ser_name }}</h5>
+                        <p style="text-align: justify;">
+                            {{ $row->ser_desc }}
+                        </p>
+
+                    </div>
                     @endforeach
                 </div>
             </div>
-
-
             <div class="container bg-white pt-5 pb-3">
                 <div class="row px-3">
                     <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Projects</h2>
+                        <h2 class="pb-2 mb-4 border-bottom">Projects</h2>
                     </div>
-                    <div class="col-12">
-                        <div class="row portfolio-container">
-                            @foreach ($project as $row)
-                                <div class="col-md-6 mb-4 portfolio-item first">
-                                    <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid w-100"
-                                            src="{{ asset('storage/proj_imgs/' . $row->proj_img) }}"
-                                            alt="{{ $row->title ?? 'Project Image' }}">
 
-                                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="{{ $row->proj_link ?? 'javscript:void();' }}" target="_blank">
-                                                <i class="fa fa-4x fa-eye text-white"></i>
+                    <div class="col-12">
+                        <div class="row">
+                            @foreach($project as $row)
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="card-body">
+
+                                        <!-- Title + Link Icon -->
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h5 class="card-title fw-bold mb-0">
+                                                {{ $row->proj_name }}
+                                            </h5>
+
+                                            @if($row->proj_link)
+                                            <a href="{{ $row->proj_link }}"
+                                                target="_blank"
+                                                class="text-primary"
+                                                title="View Project">
+                                                <i class="bi bi-box-arrow-up-right fs-5"></i>
                                             </a>
+                                            @endif
                                         </div>
+
+                                        <!-- Tech Stack Badges -->
+                                        <div class="mb-3">
+                                            @foreach(explode(',', $row->proj_stack) as $stack)
+                                            <span class="badge bg-white">
+                                                {{ trim($stack) }}
+                                            </span>
+                                            @endforeach
+                                        </div>
+
+                                        <!-- Description -->
+                                        <p class="text-muted" style="text-align: justify;">
+                                            {{ $row->proj_desc }}
+                                        </p>
+
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
+
                 </div>
             </div>
             <!-- Portfolio End -->
@@ -221,19 +250,19 @@
                     <div class="col-12">
                         <div class="contact-form">
                             @if (session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
                             @endif
 
                             @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul class="mb-0">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             @endif
 
                             <form name="sentMessage" action="{{ route('contact') }}" method="POST" novalidate>
@@ -244,7 +273,7 @@
                                         <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
                                             name="name" value="{{ old('name') }}" required>
                                         @error('name')
-                                            <p class="text-danger mt-1">{{ $message }}</p>
+                                        <p class="text-danger mt-1">{{ $message }}</p>
                                         @enderror
                                     </div>
 
@@ -252,7 +281,7 @@
                                         <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
                                             name="email" value="{{ old('email') }}" required>
                                         @error('email')
-                                            <p class="text-danger mt-1">{{ $message }}</p>
+                                        <p class="text-danger mt-1">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
@@ -261,7 +290,7 @@
                                     <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
                                         name="subject" value="{{ old('subject') }}" required>
                                     @error('subject')
-                                        <p class="text-danger mt-1">{{ $message }}</p>
+                                    <p class="text-danger mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
 
@@ -269,7 +298,7 @@
                                     <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
                                         name="message" required>{{ old('message') }}</textarea>
                                     @error('message')
-                                        <p class="text-danger mt-1">{{ $message }}</p>
+                                    <p class="text-danger mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
 
@@ -292,7 +321,7 @@
                 <div class="container bg-dark text-light text-center py-5">
                     <div class="d-flex justify-content-center mb-4">
                         <a class="btn btn-outline-primary btn-square mr-2" href="https://github.com/Yogesh5454573"><i class="fab fa-github"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com/in/yogesh-bachute-982a72194/"><i
+                        <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com/in/yogesh-bachute-982a72194/"><i
                                 class="fab fa-linkedin-in"></i></a>
                     </div>
                     <div class="d-flex justify-content-center mb-3">

@@ -17,10 +17,11 @@ class Project extends Authenticatable
     protected $primaryKey = 'id';
     Protected $table= 'project';
     protected $fillable = [
-        'proj_name',
-        'proj_link',
-        'proj_img',
         'token',
+        'proj_name',
+        'proj_desc',
+        'proj_link',
+        'proj_stack',
         'status'
     ];
 }

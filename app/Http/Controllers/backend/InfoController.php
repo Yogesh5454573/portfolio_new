@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\Info;
+use App\Models\{Info, Contacts};
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -182,6 +182,38 @@ class InfoController extends Controller
             }
         } catch (\Exception $e) {
             info('Error in openReportCmeFile(): ' . $e->getMessage());
+            Session::flash('error', 'There was some error, please try again later.');
+        }
+    }
+
+    public function contactList(Request $request)
+    {
+        try {
+            if ($request->ajax()) {
+
+                $contactList = Contacts::select([
+                    'id',
+                    'name',
+                    'email',
+                    'subject',
+                    'message',
+                    'created_at'
+                ]);
+                // dd($contactList->get());
+                return DataTables::of($contactList)
+                    ->addIndexColumn() // for DT_RowIndex if needed
+                    ->editColumn('created_at', function ($row) {
+                        return $row->created_at
+                            ? $row->created_at->format('d-m-Y H:i')
+                            : '-';
+                    })
+                    ->rawColumns(['message'])
+                    ->make(true);
+            }
+
+            return view('backend.manage_infos.contactList');
+        } catch (\Exception $e) {
+            info('Error in contactList(): ' . $e->getMessage());
             Session::flash('error', 'There was some error, please try again later.');
         }
     }
