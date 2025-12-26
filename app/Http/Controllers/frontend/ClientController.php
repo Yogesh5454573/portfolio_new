@@ -5,8 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Info, Skills, Experence, Service, Project, Contacts};
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\{Session, Storage};
 
 class ClientController extends Controller
 {
@@ -19,21 +18,25 @@ class ClientController extends Controller
         $experience = Experence::orderBy('id', 'asc')->get();
         $service = Service::where('status', 'active')->get();
         $project = Project::where('status', 'active')->get();
-        // dd($skills_languages);
         return view('frontend.home', ['info' => $info, 'skills_languages' => $skills_languages, 'skills_frameworks' => $skills_frameworks, 'experience' => $experience, 'service' => $service, 'project' => $project]);
     }
 
     public function contact(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string|min:5',
-        ]);
-        Contacts::create($validated);
-        Session::flash("success", "Your message has been sent successfully.");
-        return redirect()->route('home');
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email',
+                'subject' => 'required|string|max:255',
+                'message' => 'required|string|min:5',
+            ]);
+            Contacts::create($validated);
+            Session::flash("success", "Your message has been sent successfully.");
+            return redirect()->route('home');
+        } catch (\Exception $e) {
+            info('Error in contact(): ' . $e->getMessage());
+            Session::flash('error', 'There was some error, please try again later.');
+        }
     }
 
     public function openResumeFile($folder, $token)
@@ -55,5 +58,4 @@ class ClientController extends Controller
             Session::flash('error', 'There was some error, please try again later.');
         }
     }
-
 }

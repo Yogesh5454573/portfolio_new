@@ -6,9 +6,8 @@ use App\Models\Admin;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\{Hash, Session};
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Admin\AdminRequest;
 
 class AdminController extends Controller

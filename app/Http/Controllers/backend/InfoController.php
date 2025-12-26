@@ -190,7 +190,6 @@ class InfoController extends Controller
     {
         try {
             if ($request->ajax()) {
-
                 $contactList = Contacts::select([
                     'id',
                     'name',
@@ -199,7 +198,6 @@ class InfoController extends Controller
                     'message',
                     'created_at'
                 ]);
-                // dd($contactList->get());
                 return DataTables::of($contactList)
                     ->addIndexColumn() // for DT_RowIndex if needed
                     ->editColumn('created_at', function ($row) {

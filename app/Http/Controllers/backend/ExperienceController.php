@@ -14,7 +14,6 @@ class ExperienceController extends Controller
 {
     public function experienceList(Request $request)
     {
-        // dd('Fetching admin list...'); // Debugging line, can be removed later
         try {
             if ($request->ajax()) {
 
@@ -50,7 +49,6 @@ class ExperienceController extends Controller
     public function addUpdateExperience(ExperenceRequest $request, $token = false)
     {
         try {
-
             if ($request->method() == "PUT") {
                 $updateExperence = Experence::where(['token' => $token])->first();
                 $post = $request->all();
@@ -73,10 +71,8 @@ class ExperienceController extends Controller
     public function editExperience($token)
     {
         if ($token) {
-            // dd('Fetching experience details for token: ' . $token); // Debugging line, can be removed later
             $experenceData = Experence::where(['token' => $token])->first();
             if ($experenceData) {
-                // dd($experenceData); // Debugging line, can be removed later
                 return view('backend.manage_Experence.editExperence', ['experenceData' => $experenceData]);
             } else {
                 return redirect()->route('admin.experienceList')->with(['error' => 'Skill Details not found, please try again later.']);
