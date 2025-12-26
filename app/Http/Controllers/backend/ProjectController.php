@@ -17,19 +17,15 @@ class ProjectController extends Controller
     {
         try {
             if ($request->ajax()) {
-
                 $projectList = Project::query();
-
                 return Datatables::of($projectList)
                     ->addIndexColumn()
                     ->addColumn('action', function ($projectList) {
-
                         $edit = '<a href="/admin/editProject/' . $projectList->token . '"><button type="button" class="btn btn-sm btn-success">Edit</button></a>';
                         $delete = '<form method="POST" action="/admin/deleteProject/' . $projectList->token . '" accept-charset="UTF-8" class="delete" style="display:inline">
                     ' . csrf_field() . '
                     <input name="_method" value="DELETE" type="hidden">
                     <button type="button" class="btn btn-danger btn-sm skill_delete_alert">Delete</button></form>';
-
                         return $edit . ' ' . $delete;
                     })
                     ->rawColumns(['action'])
