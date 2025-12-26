@@ -7,9 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\{Session, Storage};
 use App\Http\Requests\Admin\ProjectRequest;
-use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
